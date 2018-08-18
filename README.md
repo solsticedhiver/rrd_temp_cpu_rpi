@@ -8,8 +8,9 @@ Just modify the **path of the db** in `rrd.sh` to point where you want your db t
 
 Hint: Better not host that file on the *SD card* or *USB key* because it will be update every minute (unless you change that). So prefer a *good old fashion HDD* or a *SSD*.
 
-Then configure *any cron like service* to run the script every minute.
+Then configure *any cron like service* to run the script `rrd.sh` every minute.
 
+## With systemd timers ##
 Here are provided *systemd files* to be run as user timer systemd services.
 
 First you need to enable *linger* for your user, so that the timer is run even if your user is not logged in
