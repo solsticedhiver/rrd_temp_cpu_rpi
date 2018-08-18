@@ -23,4 +23,10 @@ Then you run
     systemctl --user enable rrd.timer
     systemctl --user start rrd.timer
 
-Once, you have collected some data, you can get a graph by running `./rrd.sh plot`
+Once, you have collected some data, you can get a graph by running `./rrd.sh plot`. The script generates 4 png for the last hour, the last 6 hours, the last day, the last week.
+
+For example:
+
+![Last 6 hours](6hours.png)
+
+![Last day](day.png)
