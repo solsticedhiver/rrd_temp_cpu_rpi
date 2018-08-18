@@ -1,0 +1,6 @@
+[Unit]
+Description=Run rrdtool
+
+[Service]
+Type=simple
+ExecStart=/home/alarm/rrd.sh
