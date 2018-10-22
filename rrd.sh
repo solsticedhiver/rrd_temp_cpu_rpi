@@ -22,14 +22,16 @@ update_db() {
 plot() {
 	width=700
 	height=400
-	rrdtool graph hour.png -w $width -h $height -t 'Last hour temperature (°C)' \
-	--start N-1h --end N DEF:mytemp="$db":temp:AVERAGE LINE2:mytemp#0000FF
-	rrdtool graph 6hours.png -w $width -h $height -t 'Last 6 hours temperature (°C)' \
-	--start N-6h --end N DEF:mytemp="$db":temp:AVERAGE LINE2:mytemp#0000FF
-	rrdtool graph day.png -w $width -h $height -t 'Last day temperature (°C)' \
-	--start N-1d --end N DEF:mytemp="$db":temp:AVERAGE LINE2:mytemp#0000FF
+	rrdtool graph 01-hour.png -w $width -h $height -t 'Last hour temperature (°C)' \
+	--start N-1h --end N DEF:mytemp="$db":temp:AVERAGE LINE2:mytemp#0000FF >/dev/null
+	rrdtool graph 06-hours.png -w $width -h $height -t 'Last 6 hours temperature (°C)' \
+	--start N-6h --end N DEF:mytemp="$db":temp:AVERAGE LINE2:mytemp#0000FF >/dev/null
+	rrdtool graph 12-hours.png -w $width -h $height -t 'Last 12 hours temperature (°C)' \
+	--start N-12h --end N DEF:mytemp="$db":temp:AVERAGE LINE2:mytemp#0000FF >/dev/null
+	rrdtool graph 24-hours.png -w $width -h $height -t 'Last day temperature (°C)' \
+	--start N-1d --end N DEF:mytemp="$db":temp:AVERAGE LINE2:mytemp#0000FF >/dev/null
 	rrdtool graph week.png -w $width -h $height -t 'Last week temperature (°C)' \
-	--start N-1w --end N DEF:mytemp="$db":temp:AVERAGE LINE2:mytemp#0000FF
+	--start N-1w --end N DEF:mytemp="$db":temp:AVERAGE LINE2:mytemp#0000FF >/dev/null
 }
 
 if [[ ! -f "$db" ]] ;then
