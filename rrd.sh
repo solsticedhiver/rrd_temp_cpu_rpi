@@ -10,9 +10,9 @@ create_db() {
 	# create the db
 	rrdtool create "$db" --step 1m \
 	DS:temp:GAUGE:2m:0:120 \
-	RRA:AVERAGE:0.5:1m:1d \
-	RRA:AVERAGE:0.5:15m:1w \
-	RRA:AVERAGE:0.5:1d:1M
+	RRA:AVERAGE:0.5:2m:1d \
+	RRA:AVERAGE:0.5:15m:2w \
+	RRA:AVERAGE:0.5:6h:1M
 }
 
 update_db() {
